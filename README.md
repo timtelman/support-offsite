@@ -66,3 +66,9 @@ The RPi Zero is not powerful enough to run Docker reliably and I only have two h
 Every time you push new code to your GitHub repo, the webhook will be triggered and it will send a POST request to a route on your Flask app with some information about the commit. Your Flask app will then pull down the new code, kill the currently-running copy of the script controlling your lights, and restart it with the new code.
 
 Note that this kind of setup obviously doesn't scale well. The "easy" options for a proper CI/CD pipeline are very difficult or outright impossible to set up on a device this small. The "correct" ways to do it are complicated and require additional supporting infrastructure.
+
+### The Flask App
+
+Your Flask app only needs one route, and it just needs to wait for a POST request (the webhook from GitHub), then pull down from GitHub, kill the currently-running version of your Python script, and restart it with the new version.
+
+In the JFrog ecosystem, we could easily be pulling modules via Artifactory and using Pipelines to trigger this instead; however, in the interest of time (and making it more accessible for y'all to mess around with this at home in your spare time), I've left those two tools out. They would be important in a production environment.
