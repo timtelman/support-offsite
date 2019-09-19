@@ -45,10 +45,15 @@ Usually, it's a bad idea to store API keys or access tokens in a place where the
 The answer is environment variables. There are several ways to get them into your RPi's environment, but in this case we're just going to paste them into your `.bashrc` file so that they're exported every time the device starts. Use the following format:
 
 `export WEATHER_API_KEY='YOUR KEY OR TOKEN HERE'`
+
 `export TWITTER_API_KEY='YOUR KEY OR TOKEN HERE'`
+
 `export TWITTER_CONSUMER_KEY='YOUR KEY OR TOKEN HERE'`
+
 `export TWITTER_CONSUMER_SECRET='YOUR KEY OR TOKEN HERE'`
+
 `export TWITTER_ACCESS_KEY='YOUR KEY OR TOKEN HERE'`
+
 `export TWITTER_ACCESS_SECRET='YOUR KEY OR TOKEN HERE'`
 
 The file we are looking for is in the root directory, and it's a hidden file. To get to it, do the following:

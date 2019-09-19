@@ -6,7 +6,7 @@ from scripts.twitter import twitter
 import blinkt
 
 def lights():
-    effect = twitter
+    effect = rainbow
     effect()
 
 if __name__ == '__main__':
