@@ -1,6 +1,6 @@
 # Hands-on IoT Update Demo
 
-The purpose of this directory is to provide you with a boilerplate codebase for controlling the lights on your Pimoroni Blinkt.
+The purpose of this directory is to provide you with a boilerplate codebase for controlling the lights on your Pimoroni Blinkt with a simple CI/CD pipeline.
 
 In order to execute this code, the Blinkt library must be installed.
 
@@ -44,7 +44,7 @@ To run the Twitter script, you will also need to install the tweepy library:
 
 This script lights the LEDs based on the projected temperature for today. Requires an API key from https://openweathermap.org/
 
-Once you have your API key, paste it into weather.py as the value of the `API_KEY` variable. The value of `CITY_KEY` should be the name of the city you want to monitor the weather for.
+The value of `CITY_KEY` should be the name of the city you want to monitor the weather for.
 
 This script also requires the requests library:
 
@@ -84,3 +84,15 @@ Note that this kind of setup obviously doesn't scale well. The "easy" options fo
 Your Flask app only needs one route, and it just needs to wait for a POST request (the webhook from GitHub), then pull down from GitHub, kill the currently-running version of your Python script, and restart it with the new version. An sample Flask app (with zero error handling, lol) is included in the examples directory.
 
 In the JFrog ecosystem, we could easily be pulling modules via Artifactory and using Pipelines to trigger this instead; however, in the interest of time (and making it more accessible for y'all to mess around with this at home in your spare time), I've left those two tools out. They would be important in a production environment and absolutely required to run this at scale.
+
+### ngrok
+
+For this to work, your Flask app needs to be exposed to the public internet. There are a number of ways to do that, but for this, the easiest is to just use ngrok. Make an account at ngrok.com and install the tool on your Pi. You need the version for Linux(ARM).
+
+`wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip`
+
+Then unzip it:
+
+`unzip ./ngrok-stable-linux-arm.zip`
+
+Then add the authtoken provided by your ngrok account.
