@@ -12,7 +12,7 @@ def restart():
     blinkt.clear()
     blinkt.show()
     
-    subprocess.call(['python ' '~/iot-example/app.py'], shell=True)
+    subprocess.call(['python ' '~/support-offsite/app.py'], shell=True)
 
 @app.route('/update', methods=['POST'])
 def update_script():
@@ -20,7 +20,7 @@ def update_script():
     print(data['commits'][0])
     print('New version available. Pulling from master.')
 
-    cmd = 'cd iot-example/ && git pull origin master'
+    cmd = 'cd support-offsite/ && git pull origin master'
     os.system(cmd)
 
     restart()
